@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>shop</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="search">
+                
+            <button id="home" class="home" onclick="dataApi(6)">HOME</button>
+                <input type="text" placeholder="поиск" name="search" id="search">
+            <button>
+                <svg width="25" height="25" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.591 9.591a4 4 0 10-5.657-5.657 4 4 0 005.657 5.657zm1.06-6.717a5.502 5.502 0 01.915 6.57l2.732 2.733a1.5 1.5 0 11-2.121 2.12l-2.732-2.73a5.5 5.5 0 111.207-8.692z" fill="#000"></path>
+                </svg>
+            </button>
+            </div>
+        </div>
+    </header>
+    
+    <section class="contents">
+        <h2>Наши продукты</h2>
+        
+        <div class="category_tovar">
+            <button id="jewelerys" class="btnFilter" onclick="getValue(this)" value="jewelery">
+                <img width="100" src="./icon/jewelery.png" alt="jewelery">
+            </button>
+            <button id="electronics" class="btnFilter" onclick="getValue(this)" value="electronics">
+                <img width="100" src="./icon/electronics.png" alt="electronics">
+            </button>
+            <button id="men's_clothing" class="btnFilter" onclick="getValue(this)" value="men's clothing">
+                <img width="100" src="./icon/men's_clothing.png" alt="men's clothing">
+            </button>
+            <button id="women's_clothing" class="btnFilter" onclick="getValue(this)" value="women's clothing">
+                <img width="100" src="./icon/women's_clothing.png" alt="women's clothing">
+            </button>
+        </div>
+        <div class="products"></div>
+        <button id="more" class="more">Загрузить еще</button>
+    </section>
+    <section class="forms" id="formAdd">
+        <div class="formAdd">
+            <form method="post">
+                <h3>Добавление товара</h3>
+                <label for="name_tovar">Наименование товара</label>
+                <input type="text" name="name_tovar" id="name_tovar">
+                <label for="description_tovar">Описапние товара</label>
+                <input type="text" name="description_tovar" id="description_tovar">
+                <label for="price_tovar">Цена товара</label>
+                <input type="text" name="price_tovar" id="price_tovar">
+                <button type="button" onclick="addTovar()">Добавить товар</button>
+            </form>
+        </div>
+        <div class="formDelete">
+            <form method="post">
+                
+                <h3>Удаление товара</h3>
+                <label for="idDel">Индификатор товара</label>
+                <input type="number" name="idDel" id="idDel">
+                <button type="button" onclick="delTovar()">Удалить товар</button>
+            </form>
+        </div>
+       
+    </section>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
