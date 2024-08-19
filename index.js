@@ -1,7 +1,9 @@
 async function dataApi(count){
     try{
         const res = await fetch(`https://fakestoreapi.com/products?limit=${count}`)
+        //const res = await fetch(`https://dummyjson.com/products`)
         let data = await res.json()
+        console.log(data)
         getPost(data);
     }catch(error){
         console.log('error', error)
@@ -59,9 +61,18 @@ async function getPost(content){
             <img src="${content[key].image}" alt="${content[key].title}" width="40%">
             <p class="title__tovar">${content[key].title}</p>
             <p class="price__tovar">${content[key].price} руб.</p>
-            <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9 5.994h2.29l-1.145-1.98-1.146 1.98zm4.6 0h3.545l-2.016 10.03h-10L1.045 5.993H4.59L8.045.024l3.455 5.97z" fill="#000"></path>
-</svg>
+
+            <button onclick="delTovar(${content[key].id})" class="btnDelete">
+                        <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 2.697L2.698 4.11 6.586 8l-3.89 3.89 1.415 1.413L8 9.414l3.89 3.89 1.413-1.415L9.414 8l3.89-3.89-1.415-1.413L8 6.586l-3.89-3.89z" fill="#000"></path>
+                        </svg>
+            </button>
+
+            <div class="cart">
+                <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9 5.994h2.29l-1.145-1.98-1.146 1.98zm4.6 0h3.545l-2.016 10.03h-10L1.045 5.993H4.59L8.045.024l3.455 5.97z" fill="#000"></path>
+                </svg>
+            </div>
         </div>
         `
     }
@@ -96,15 +107,14 @@ async function addTovar(){
     }
 }
 
-async function delTovar(){
+async function delTovar(tovarDel){
     try{
-        const tovarDel = document.getElementById('idDel').value;
+        //const tovarDel = document.getElementById('idDel').value;
         fetch(`https://fakestoreapi.com/products/${tovarDel}`,{
             method:"DELETE"
         })
-            .then(res=>res.json())
-            .then(json=>console.log(json))
             alert(`Товар под номером ${tovarDel} удален`);
+            dataApi(6)
     }catch(error){
         console.error('Error: ', error)
     }

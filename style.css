@@ -43,7 +43,7 @@ body{
     fill: #fff;
 }
 
-.search button, .category_tovar button, .more{
+.search button, .category_tovar button, .more, .btnDelete{
     padding: 0;
     border: none;
     font: inherit;
@@ -97,15 +97,31 @@ body{
 }
 
 .product svg{
-    position: absolute;
     width: 19px;
     height: 19px;
-    right: 10px;
-    bottom: 10px;
     cursor: pointer;
 }
 
-.formAdd form, .formDelete form{
+.product .btnDelete{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.btnDelete svg:hover{
+    background-color: #ddd;
+    border-radius: 24px;
+}
+
+.product .cart{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.formAdd form {
     position: absolute;
     right: 15px;
     top: 50px;
@@ -115,9 +131,6 @@ body{
     gap: 20px;
 }
 
-.formDelete form{
-    top: 450px;
-}
 
 .more{
     width: 150px;
