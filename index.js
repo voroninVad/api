@@ -82,6 +82,7 @@ async function addTovar(){
     try{
         const tovarName = document.getElementById('name_tovar').value,
         tovarDesc = document.getElementById('description_tovar').value,
+        tovarCateg = document.getElementById('category').value,
         tovarPrice = document.getElementById('price_tovar').value;
         
         fetch('https://fakestoreapi.com/products',{
@@ -94,6 +95,7 @@ async function addTovar(){
                     title: tovarName,
                     price: tovarPrice,
                     description: tovarDesc,
+                    category: tovarCateg,
                     image: 'https://i.pravatar.cc',
                     category: 'electronic'
                 }
